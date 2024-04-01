@@ -4,6 +4,10 @@ on: push
 
 jobs:
   transcribe-and-upload:
+    environment: my_env
+    permissions:
+      contents: 'read'
+      actions: 'read'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
