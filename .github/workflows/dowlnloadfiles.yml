@@ -41,9 +41,14 @@ jobs:
 
 
 
-    - name: Run Transcription Script
+    - name: Run download_videos
       run: python download_videos.py  # Replace 'your_script_name.py' with the name of your Python script
 
+
+    - name: Run process Videos
+      run: |
+        chmod +x process.sh
+        bash process.sh
 
     - name: Upload Output Folder to S3
       run: aws s3 sync AdinRoss_final/ s3://${{ secrets.S3_BUCKET_NAME }}/AdinRoss_final/ 
