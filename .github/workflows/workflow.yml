@@ -1,6 +1,6 @@
 name: Transcribe Videos and Upload to S3
 
-on: workflow_dispatch
+on: push
 
 jobs:
   transcribe-and-upload:
