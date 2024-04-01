@@ -1,6 +1,7 @@
 name: Transcribe Videos and Upload to S3
 
-on: workflow_dispatch
+on: push
+
 jobs:
   transcribe-and-upload:
     environment: my_env
@@ -19,8 +20,10 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        pip install pytube openai-whisper
         pip install boto3
+        pip install pytube
+
+    
     
     - name: Install AWS CLI
       run: sudo apt-get install awscli
@@ -39,8 +42,8 @@ jobs:
 
 
     - name: Run Transcription Script
-      run: python transcribe_whisper.py  # Replace 'your_script_name.py' with the name of your Python script
+      run: python download_videos.py  # Replace 'your_script_name.py' with the name of your Python script
 
 
     - name: Upload Output Folder to S3
-      run: aws s3 sync transcribed_files/ s3://${{ secrets.S3_BUCKET_NAME }}/transcribed_files/ 
+      run: aws s3 sync AdinRoss_final/ s3://${{ secrets.S3_BUCKET_NAME }}/AdinRoss_final/ 
