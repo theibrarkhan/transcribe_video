@@ -18,22 +18,26 @@ jobs:
       run: |
         pip install pytube openai-whisper
         pip install boto3
-
+    
+    - name: Install AWS CLI
+      run: sudo apt-get install awscli
 
     - name: Install FFmpeg
       run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
-    - name: Run Transcription Script
-      run: python transcribe_whisper.py  # Replace 'your_script_name.py' with the name of your Python script
-
-    - name: Install AWS CLI
-      run: sudo apt-get install awscli
-
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@0e613a0980cbf65ed5b322eb7a1e075d28913a83
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
+        aws-region: us-east-2
+        mask-aws-account-id: 'no'
+
+
+
+    - name: Run Transcription Script
+      run: python transcribe_whisper.py  # Replace 'your_script_name.py' with the name of your Python script
+
+
     - name: Upload Output Folder to S3
       run: aws s3 sync transcribed_files/ s3://${{ secrets.S3_BUCKET_NAME }}/transcribed_files/ 
