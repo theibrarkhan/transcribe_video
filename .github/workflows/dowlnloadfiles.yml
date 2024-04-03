@@ -23,7 +23,7 @@ jobs:
     # Install pip dependencies
     - name: Install Dependencies
       run: |
-        pip install -r requirements.txt
+        pip install pytube 
 
     # Cache apt packages
     - name: Cache apt
