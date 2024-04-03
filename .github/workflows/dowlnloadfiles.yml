@@ -23,19 +23,9 @@ jobs:
     # Install pip dependencies
     - name: Install Dependencies
       run: |
-        pip install pytube 
+         pip install pytube
 
-    # Cache apt packages
-    - name: Cache apt
-      id: cache-apt
-      uses: actions/cache@v2
-      with:
-        path: |
-          /var/cache/apt/archives
-          /var/lib/apt/lists
-        key: ${{ runner.os }}-apt-${{ hashFiles('**/apt_requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-apt-
+
 
     # Install apt dependencies if cache is not found
     - name: Install AWS CLI and FFmpeg
@@ -43,10 +33,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y awscli ffmpeg
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
+
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
