@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Directory containing the original videos
-input_dir="thevon"
+input_dir="NickNayersina"
 
 # Directory where the processed videos will be saved
-output_dir="thevon"
+output_dir="NickNayersina_final1"
 
 # Create the output directory if it doesn't exist
 mkdir -p "$output_dir"
