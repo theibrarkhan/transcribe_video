@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Directory containing the original videos
-input_dir="plasticinerelax"
+input_dir="CenatUniverse"
 
 # Directory where the processed videos will be saved
-output_dir="plasticinerelax_final3"
+output_dir="CenatUniverse"
 
 # Create the output directory if it doesn't exist
 mkdir -p "$output_dir"
