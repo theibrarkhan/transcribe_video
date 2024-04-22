@@ -4,7 +4,7 @@
 input_dir="VirallyRay"
 
 # Directory where the processed videos will be saved
-output_dir="VirallyRay1"
+output_dir="VirallyRay2"
 
 # Create the output directory if it doesn't exist
 mkdir -p "$output_dir"
