@@ -55,4 +55,4 @@ jobs:
         bash process.sh
 
     - name: Upload Output Folder to S3
-      run: aws s3 sync DavidAlvareeezy1/ s3://${{ secrets.S3_BUCKET_NAME }}/DavidAlvareeezy1/ 
+      run: aws s3 sync DavidAlvareeezy2/ s3://${{ secrets.S3_BUCKET_NAME }}/DavidAlvareeezy2/ 

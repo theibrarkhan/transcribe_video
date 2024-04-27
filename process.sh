@@ -4,7 +4,7 @@
 input_dir="DavidAlvareeezy"
 
 # Directory where the processed videos will be saved
-output_dir="DavidAlvareeezy1"
+output_dir="DavidAlvareeezy2"
 
 # Create the output directory if it doesn't exist
 mkdir -p "$output_dir"
